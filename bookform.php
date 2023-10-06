@@ -1,5 +1,8 @@
 <?php
 include 'config.php';
+if(!isset($_SESSION['id'])){
+    header('Location: index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +31,9 @@ include 'config.php';
         <div class="container col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <form action="processbook.php" id="myform" name="form" method="POST">
             <input type="hidden" id="bookcarno" name="bookcarno" class="form-control valid" value="<?php echo $_GET['carno'] ?>">
+             <input type="hidden" id="name" name="name" class="form-control valid" value="<?php echo $_SESSION['name'] ?>">
+            <input type="hidden" id="id" name="id" class="form-control valid" value="<?php echo $_SESSION['id'] ?>">
+
 
 
                 <div class="input-control">
@@ -54,7 +60,7 @@ include 'config.php';
                     <div class="error text-danger"></div>
                 </div>
 
-                <button type="button" id="save" value="save" name="save"
+                <button type="submit" id="save" value="save" name="save"
                     class="p-2 px-5 mt-3 rounded bg-success float-end text-light m-5" onclick="validbook()">Save</button>
                 <button type="button" id="back" value="back" name="back"
                     class="p-2 px-5 mt-3 rounded bg-danger float-end text-light m-5"><a href="advert.php"
@@ -80,7 +86,7 @@ include 'config.php';
                 // var picklocation = document.getElementById('picklocation').value;
                 // var droplaocation = document.getElementById('droplaocation').value;
 
-                var errorholder = true;
+                // var errorholder = true;
 
                 var validElements = document.querySelectorAll('.valid');
                 validElements.forEach(function(element) {

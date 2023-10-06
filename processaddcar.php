@@ -1,6 +1,9 @@
 <?php
 
 include 'config.php';
+if(!isset($_SESSION['id'])){
+  header('Location: index.php');
+}
 
 function test_input($data)
 {

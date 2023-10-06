@@ -1,6 +1,8 @@
 <?php 
 include 'config.php';
-
+if(!isset($_SESSION['id'])){
+    header('Location: index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,12 +27,12 @@ include 'config.php';
 <body>
     <form action="">
         <div class="container text-center">
-            <label for="bookee_id" class="form-label"><b>Your bookee ID:</b> <?php echo $_SESSION['bookee_id'] ?> </label>
+            <label for="bookee_id" class="form-label"><b>Your bookee ID is :</b> <?php echo $_SESSION['bookee_id'] ?> </label>
         </div>
 
         <button type="button" id="back" value="back" name="back"
             class="p-2 px-5 mt-3 rounded bg-danger float-end text-light m-5"><a href="advert.php"
-                style="text-decoration: none; color:white;">Back</a></button>
+                style="text-decoration: none; color:white;">Close</a></button>
 
     </form>
 </body>

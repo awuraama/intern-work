@@ -1,6 +1,8 @@
 <?php
 include 'config.php';
-
+if(!isset($_SESSION['id'])){
+    header('Location: index.php');
+}
  
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -10,6 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hasError = false;
         $errorString = '';
 
+        $customer_id = $_POST["id"];
+        $customer_name = $_POST["name"];
         $pickupdate = $_POST["pickupdate"];
         $returndate = $_POST["returndate"];
         $picklocation = $_POST["picklocation"]; 
@@ -20,6 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //date('Y-m-d');
 // print_r( $carbook_registration_no);
 //  exit;
+print_r($customer_id);
+
     
         if($hasError){
             echo $errorString;
@@ -27,9 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         
 
-        $sql = "INSERT INTO car_book (pickupdate,  returndate,  picklocation, droplocation, carbook_registration_no, bookee_id ) VALUES (:pickupdate, :returndate, :picklocation, :droplocation, :bookcarno, :bookee_id)";
+        $sql = "INSERT INTO car_book (customer_id, customer_name, pickupdate,  returndate,  picklocation, droplocation, carbook_registration_no, bookee_id ) VALUES (:id, :name, :pickupdate, :returndate, :picklocation, :droplocation, :bookcarno, :bookee_id)";
 
         $stmt = $connection->prepare($sql);
+        $stmt->bindParam(':id', $customer_id);
+        $stmt->bindParam(':name', $customer_name);
         $stmt->bindParam(':pickupdate', $pickupdate);
         $stmt->bindParam(':returndate', $returndate);
         $stmt->bindParam(':picklocation', $picklocation);
@@ -41,8 +49,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($status) {
             echo 'inserted';
-            $_SESSION['registration_no'] = $data['registration_no'];
+            
+
+           
             $_SESSION['bookee_id'] = $bookee_id;
+
+            //exit;
 
             header('location:bookidform.php');
         } else {
@@ -93,6 +105,8 @@ $list = $stmt->fetchAll();
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>customer_id</th>
+                    <th>customer_name</th>
                     <th>pickupdate</th>
                     <th>returndate</th>
                     <th>picklocation</th>
@@ -107,6 +121,8 @@ $list = $stmt->fetchAll();
                          foreach ($list as $value) { ?>
                 <tr>
                     <td><?php echo $i++ ?></td>
+                    <td><?php echo $value['customer_id'] ?></td>
+                    <td><?php echo $value['customer_name'] ?></td>
                     <td><?php echo $value['pickupdate'] ?></td>
                     <td><?php echo $value['returndate'] ?></td>
                     <td><?php echo $value['picklocation'] ?></td>
