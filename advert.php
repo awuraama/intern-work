@@ -183,14 +183,14 @@ $list = $stmt->fetchAll();
                         <div style="display:flex; justify-content: center; align-items: center;">
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
-                                data-bs-toggle="modal" data-bs-target="#exampleModal_<?php echo  $value['registration_no']; ?>">
+                                data-bs-toggle="modal" data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
                                 Book Now!
                             </button>
 
 
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal_<?php echo  $value['registration_no']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">

@@ -72,7 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($status) {
             echo 'inserted';
-            header('location:index.php?#login');
+            // header('location:index.php?#login');
+            header('location:login.php');
         } else {
             echo 'failed';
         }

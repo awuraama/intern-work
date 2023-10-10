@@ -1,5 +1,7 @@
 <?php
 include 'config.php';
+ 
+
 if (isset($_GET['del']) && !empty($_GET['del'])) {
     $deleterecord = $_GET['del'];
      echo  $deleterecord;

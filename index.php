@@ -19,88 +19,109 @@ include 'config.php';
 </head>
 
 <body>
-    <div class="container">
-        <div>
-            <nav class="navbar navbar-expand-lg   navbar-dark fixed-top" style="background-color:  #05294b;">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg   navbar-dark fixed-top" style="background-color:  #05294b;">
+            <div class="container">
+                <a href="#" class="navbar-brand">SansPareil.Rentals</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"
+                    aria-controls="navmenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <div class="container">
-                    <a href="#" class="navbar-brand">SansPareil.Rentals</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"
-                        aria-controls="navmenu">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse " id="navmenu">
-                        <ul class="navbar_nav  ms-auto list-unstyled ">
-                            <li class="nav-item list-inline-item">
-                                <a href="#myform" class="nav-link text-light">Login</a>
+                <div class="collapse navbar-collapse " id="navmenu">
+                    <ul class="navbar_nav  ms-auto list-unstyled ">
+                        <!-- <li class="nav-item list-inline-item">
+                                <a href="login.php" class="nav-link text-light">Login</a>
                             </li>
                             <li class="nav-item list-inline-item text-light">
                                 <a href="#login" class="nav-link text-light">Sign up</a>
-                            </li>
-                            <li class="nav-item list-inline-item">
-                                <a href="#blog" class="nav-link text-light">Blog</a>
-                            </li>
-                            <li class="nav-item list-inline-item">
-                                <a href="#about" class="nav-link text-light">About us</a>
-                            </li>
-                            <li class="nav-item list-inline-item">
-                                <a href="#about" class="nav-link text-light">Contact</a>
-                            </li>
-                        </ul>
+                            </li> -->
+                        <li class="nav-item list-inline-item">
+                            <a href="#blog" class="nav-link text-light">Blog</a>
+                        </li>
+                        <li class="nav-item list-inline-item text-light">
+                            <a href="#cars" class="nav-link text-light">Cars</a>
+                        </li>
+                        <li class="nav-item list-inline-item">
+                            <a href="about.php" class="nav-link text-light">About us</a>
+                        </li>
+                        <li class="nav-item list-inline-item">
+                            <a href="#about" class="nav-link text-light">Contact</a>
+                        </li>
+                        <li class="nav-item list-inline-item">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary dropdown-toggle"
+                                        data-bs-toggle="dropdown"></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item text-primary" href="login.php">login</a></li>
+                                        <li><a class="dropdown-item text-primary" href="sign_up.php">sign up</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+        </nav>
+        <!-- <div id="blog">
+            <div class="container-fluid intro">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 p-5 m-5">
+                        <h3 style="font-size:50px;">Kick-start Your Journey</h3>
+                        <p><strong>When it comes to car rentals... <em>we day for you!</em></strong></p>
                     </div>
-            </nav>
-            <div id="blog">
-                <div class="container-fluid intro">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 p-5 m-5">
-                            <h3 style="font-size:50px;">Kick-start Your Journey</h3>
-                            <p><strong>When it comes to car rentals... <em>we day for you!</em></strong></p>
-                        </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <div id="intro" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#intro" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#intro" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#intro" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="1500">
+                    <img src="casset/c2.PNG" class="d-block w-100 slide-img" alt="image" height="700px;">
+                    <div class="carousel-caption">
+                        <h5 style="color: #fff; font-size:30px;">when it comes to car rentals we dey for you!</h5>
                     </div>
                 </div>
-
-                <div class="my-5 ticks float-end">
-                    <span><img src="casset/tick.PNG" alt="tick">Flexibility</span>
-                    <span><img src="casset/tick.PNG" alt="tick">Conveniency</span>
-                    <span><img src="casset/tick.PNG" alt="tick">Reliability</span>
-                    <span><img src="casset/tick.PNG" alt="tick">Comfortability</span>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="casset/C6.PNG" class="d-block w-100 slide-img" alt="image" height="700px;">
+                    <div class="carousel-caption">
+                        <h5 style="color: #fff; font-size:30px;">when it comes to car rentals we dey for you!</h5>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="casset/c5.PNG" class="d-block w-100 slide-img" alt="image" height="700px;">
+                    <div class="carousel-caption">
+                        <h5 style="color: #fff; font-size:30px;">when it comes to car rentals we dey for you!</h5>
+                    </div>
                 </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#intro" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#intro" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="container" style="margin-top: +200px;">
-            <h4 class="text-left" style="font-size: 40px; color:  #05294b;">ARE YOU A CAR LOVER?</h4>
-            <hr>
-            <div class="row  justify-content-around align-item-center">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5">
-                    <p style="padding:50px;">
-                        We all have fantasies about our ideal automobiles, but only a select few people put in the
-                        effort to turn
-                        those thoughts into reality. You undoubtedly deserve a lot of praise if you are the one who
-                        finally got
-                        your dream car. These are the best quotes for car lovers and beautiful vehicles are ideal for
-                        anyone
-                        preparing to embark on their first journey in their ideal vehicle. <span
-                            class="blockquote-footer">autobest</span></p>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5 text-item-center">
-                    <center><img src="casset/c2.PNG" alt="car" style="width:90%;"></center>
-                </div>
 
 
+        <div class="my-5 ticks">
+            <div class="d-flex justify-content-around">
+                <span><img src="casset/tick.PNG" alt="tick">Flexibility</span>
+                <span><img src="casset/tick.PNG" alt="tick">Conveniency</span>
+                <span><img src="casset/tick.PNG" alt="tick">Reliability</span>
+                <span><img src="casset/tick.PNG" alt="tick">Comfortability</span>
             </div>
         </div>
-        <div class="row  justify-content-around align-item-center">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5 text-item-center">
-                <center><img src="casset/c1.PNG" alt="car" style="width:80%;"></center>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5">
-                <P style="padding:50px;">If you had asked folks what kind of wheels they wanted. They would have
-                    responded, "A faster car," and
-                    the correct response is BMW /M Performance.</P>
-            </div>
-        </div>
-        <hr>
+
         <div class="container" id="login" style="padding:70px; background-color:#eee; margin-top:120px;">
             <h4 class="text-end p-5" style="font-size: 40px; color:#05294b;">WHY RENT A CAR</h4>
             <div class="container" style="padding: left 40px; padding: right 40px;">
@@ -115,14 +136,146 @@ include 'config.php';
 
             </div>
         </div>
-        <div>
 
-        </div>
     </div>
 
-    <div class="container col-lg-6 col-md-6 col-sm-6 col-xs-6  mt-5" style="align-items: center; top:+60px;  border: 6px  #05294b solid; background-color: #fff; padding: 14px 40px;
-                    ">
-        <form action="processlogin.php" id="myform" method="Post">
+
+    <section id="cars">
+        <div class="container">
+            <div class="container" style="margin-top: +100px;">
+                <h4 class="text-left" style="font-size: 40px; color:  #05294b;">CARS</h4>
+                <button type="submit" id="book" value="book" name="book"
+                    class="p-2 px-5 mt-3 rounded bg-success float-end text-light m-5" onclick=""><a href="login.php"
+                        style="text-decoration:none; color:#fff"> BOOK A CAR! </a></button>
+                <hr>
+                <!-- <div class="row  justify-content-around align-item-center">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5">
+                    <p style="padding:50px;">
+                        We all have fantasies about our ideal automobiles, but only a select few people put in the
+                        effort to turn
+                        those thoughts into reality. You undoubtedly deserve a lot of praise if you are the one who
+                        finally got
+                        your dream car. These are the best quotes for car lovers and beautiful vehicles are ideal for
+                        anyone
+                        preparing to embark on their first journey in their ideal vehicle. <span
+                            class="blockquote-footer">autobest</span></p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5 text-item-center">
+                    <center><img src="casset/c2.PNG" alt="car" style="width:90%;"></center>
+                </div>
+            </div>
+        </div>
+        <div class="row  justify-content-around align-item-center">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5 text-item-center">
+                <center><img src="casset/c1.PNG" alt="car" style="width:80%;"></center>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5">
+                <P style="padding:50px;">If you had asked folks what kind of wheels they wanted. They would have
+                    responded, "A faster car," and
+                    the correct response is BMW /M Performance.</P>
+            </div>
+        </div> -->
+                <?php 
+                $sql = "SELECT * FROM `showcars`";
+                $stmt = $connection->prepare($sql);
+                $status  = $stmt->execute();
+                $list = $stmt->fetchAll();
+             
+    ?>
+                <div class="container">
+                    <div class="container" style="margin-top:100px;">
+                        <div class="row  justify-content-around align-item-center">
+                            <?php
+                if(is_array($list)){
+                foreach ($list as $key => $value) {
+               // print_r($value);
+                ?>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
+                                <div>
+
+                                    <div style="display:flex; justify-content: center; align-items: center;">
+                                        <!-- Button trigger modal -->
+                                        <!-- <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
+                                    Book Now!
+                                </button> -->
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>"
+                                            tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Properties</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                        <ul>
+                                                            <li><strong>make: </strong> <?php echo $value['make']?></li>
+                                                            <li><b>model: </b> <?php echo $value['model']?></li>
+                                                            <li><b>model year: </b> <?php echo $value['model_year']?>
+                                                            </li>
+                                                            <li><b>isAvailable: </b>
+                                                                <?php echo $value['registration_no']?></li>
+                                                            <li><b>mileage: </b> <?php echo $value['mileage']?></li>
+                                                            <li><b>Registration number: </b>
+                                                                <?php echo $value['registration_no']?></li>
+                                                            <li><b>insurance code: </b> <?php echo $value['mileage']?>
+                                                            </li>
+                                                        </ul>
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+
+                                                        <button type="button" class="btn btn-primary"><a
+                                                                href="bookform.php?carno=<?php echo $value['registration_no']?>"
+                                                                style="text-decoration:none; color:#fff"> Book Now!
+                                                            </a></button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <img src="casset/<?php echo $value['car_images'] ?>" alt="car"
+                                            style="width:100%;">
+                                        </center>
+                                        <p>Car details:
+                                        <ul>
+                                            <li><b>model: </b> <?php echo $value['model']?></li>
+                                            <li><b>model year: </b> <?php echo $value['model_year']?>
+                                            </li>
+                                            <li><b>mileage: </b> <?php echo $value['mileage']?></li>
+                                            <li><b>price_per_hour: $</b> <?php echo $value['price_per_hour']?></li>
+
+                                        </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } } ?>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+
+    <hr>
+    </div>
+
+
+    </div>
+
+    <!-- <div class="container col-lg-6 col-md-6 col-sm-6 col-xs-6  mt-5" style="align-items: center; top:+60px;  border: 6px  #05294b solid; background-color: #fff; padding: 14px 40px; -->
+
+    <!-- <form action="processlogin.php" id="myform" method="Post">
             <div class="container">
                 <h2 class="text-center pb-5"><strong>SansPareil.Rentals</strong></h2>
 
@@ -145,8 +298,12 @@ include 'config.php';
 
                 <p class="text-center"><a href="sign_up.php"> Sign Up</a></p>
             </div>
-        </form>
-    </div>
+        </form> -->
+
+
+
+
+    <!-- </div> -->
 
     <div class="container p-5 mt-5 mb-5">
         <div class="row">
@@ -155,7 +312,7 @@ include 'config.php';
                         class="img-thumbnail img-fluid mx-auto d-block hidden-xs img-responsive"></center>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <center><img src="casset/c5.PNG" alt="image" id="pcode"
+                <center><img src="casset/c7.PNG" alt="image" id="pcode"
                         class="img-thumbnail img-fluid mx-auto d-block img-responsive p-4"></center>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">

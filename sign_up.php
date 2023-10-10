@@ -56,7 +56,7 @@ include 'config.php';
 
                 <div class="input-control">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" name="email" class="form-control valid" onkeyup="validemail(this)">
+                    <input type="email" id="email" required name="email" class="form-control valid" onkeyup="validemail(this)">
                     <div class="error text-danger"></div>
                 </div>
 
@@ -68,7 +68,7 @@ include 'config.php';
 
                 <div class="input-control">
                     <label for="contact" class="form-label">Contact No.</label>
-                    <input type="contact" id="contact" name="contact" class="form-control valid" onkeyup="validatecontact(this)">
+                    <input type="tel" id="contact" name="contact" class="form-control valid" onkeyup="validatecontact(this)">
                     <div class="error text-danger"></div>
                 </div>
 
