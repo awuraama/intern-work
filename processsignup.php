@@ -29,10 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $address = test_input($_POST["address"]);
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $address)) {
-            $hasError = true;
-            $errorString .= "Only letters and white spaces allowed";
-        }
+        
 
         $contact = test_input($_POST["contact"]);
         if (!preg_match("/^\d+$/", $contact)) {
@@ -93,7 +90,7 @@ $list = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hannah Osae | Rental System</title>
+    <title>Rental System</title>
     <style>
         table {
             width: 300px;

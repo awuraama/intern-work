@@ -12,6 +12,12 @@
     color: #fff;
     top: +200px;
 } */
+.logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
 nav ul li a {
     text-decoration: none;
     color: #fff !important;
@@ -26,3 +32,4 @@ nav ul li a {
     object-fit: cover;
     object-position: bottom;
  }
+  

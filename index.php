@@ -12,16 +12,21 @@ include 'config.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hannah Osae | Rental System</title>
+    <title>Rental System</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <style>
+
+    </style>
 </head>
 
 <body>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg   navbar-dark fixed-top" style="background-color:  #05294b;">
-            <div class="container">
+        <nav class="navbar navbar-expand-lg   navbar-dark fixed-top" style="background-color:  black;">
+            <div class="container" id="logo">
+                <img src="casset/carlogo.PNG" alt="car image" height="40px;" width="100px;" class="rounded">
                 <a href="#" class="navbar-brand">SansPareil.Rentals</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"
                     aria-controls="navmenu">
@@ -36,9 +41,6 @@ include 'config.php';
                             <li class="nav-item list-inline-item text-light">
                                 <a href="#login" class="nav-link text-light">Sign up</a>
                             </li> -->
-                        <li class="nav-item list-inline-item">
-                            <a href="#blog" class="nav-link text-light">Blog</a>
-                        </li>
                         <li class="nav-item list-inline-item text-light">
                             <a href="#cars" class="nav-link text-light">Cars</a>
                         </li>
@@ -46,22 +48,26 @@ include 'config.php';
                             <a href="about.php" class="nav-link text-light">About us</a>
                         </li>
                         <li class="nav-item list-inline-item">
-                            <a href="#about" class="nav-link text-light">Contact</a>
+                            <a href="#intro" class="nav-link text-light">Blog</a>
                         </li>
                         <li class="nav-item list-inline-item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle"
-                                        data-bs-toggle="dropdown"></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-primary" href="login.php">login</a></li>
-                                        <li><a class="dropdown-item text-primary" href="sign_up.php">sign up</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <a href="contact.php" class="nav-link text-light">Contact</a>
                         </li>
+                        <li class="nav-item list-inline-item">
+                            <div class="btn-group ">
 
-                    </ul>
+                                <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown"><i class="bi-person-circle"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-primary" href="login.php">login</a></li>
+                                    <li><a class="dropdown-item text-primary" href="sign_up.php">sign up</a></li>
+                                </ul>
+                            </div>
                 </div>
+                </li>
+
+                </ul>
+            </div>
         </nav>
         <!-- <div id="blog">
             <div class="container-fluid intro">
@@ -122,33 +128,64 @@ include 'config.php';
             </div>
         </div>
 
-        <div class="container" id="login" style="padding:70px; background-color:#eee; margin-top:120px;">
-            <h4 class="text-end p-5" style="font-size: 40px; color:#05294b;">WHY RENT A CAR</h4>
-            <div class="container" style="padding: left 40px; padding: right 40px;">
-                <p>Everyone likes their privacy, you included because privacy is power. Take charge of your itinery by
-                    having your private vehicle instead of depending on a taxi or public transport.Is it<em>Business
-                        travel?..... Private trip?.....Or......Commercial travel. Whatever the occasion is you need
-                        peacefulness and quietness</em></p>
-                <p> Be your own boss,let loose, step out and enjoy the trip with fleibility and relaxability while
-                    having fun. </p>
-                <p class="text-center"><strong><em> Be Adventurous! Let's <a href="sign_up.php" style="font-size:20px;">
-                                Sign you up </a> today.</em></strong></p>
 
-            </div>
-        </div>
 
     </div>
 
 
     <section id="cars">
+
         <div class="container">
             <div class="container" style="margin-top: +100px;">
-                <h4 class="text-left" style="font-size: 40px; color:  #05294b;">CARS</h4>
-                <button type="submit" id="book" value="book" name="book"
-                    class="p-2 px-5 mt-3 rounded bg-success float-end text-light m-5" onclick=""><a href="login.php"
-                        style="text-decoration:none; color:#fff"> BOOK A CAR! </a></button>
+                <h4 class="text-left" style="font-size: 40px; color:black;">CARS</h4>
                 <hr>
-                <!-- <div class="row  justify-content-around align-item-center">
+
+                <div class="d-flex justify-content-around p-4">
+                    <div class="btn-group ">
+                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
+                            data-bs-toggle="dropdown">All</button>
+
+                    </div>
+
+                    <div class="btn-group ">
+                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
+                            data-bs-toggle="dropdown">Sedan</button>
+
+                    </div>
+
+                    <div class="btn-group ">
+                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
+                            data-bs-toggle="dropdown">Wagon</button>
+
+                    </div>
+
+                    <div class="btn-group ">
+                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
+                            data-bs-toggle="dropdown">Van</button>
+
+                    </div>
+
+                    <div class="btn-group ">
+                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
+                            data-bs-toggle="dropdown">Coupe</button>
+
+                    </div>
+
+                    <div class="btn-group ">
+                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
+                            data-bs-toggle="dropdown">Pick
+                            up</button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <a href="login.php" style="text-decoration:none; color:#fff;"> <button type="submit" id="book" value="book"
+                    name="book" class="p-2 px-5 mt-3 rounded float-end text-light m-5" style="background-color:black;"
+                    onclick=""> BOOK A CAR! </button></a> -->
+            <hr style="color: #fff;">
+            <!-- <div class="row  justify-content-around align-item-center">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5">
                     <p style="padding:50px;">
                         We all have fantasies about our ideal automobiles, but only a select few people put in the
@@ -175,135 +212,170 @@ include 'config.php';
                     the correct response is BMW /M Performance.</P>
             </div>
         </div> -->
-                <?php 
+
+            <?php 
                 $sql = "SELECT * FROM `showcars`";
                 $stmt = $connection->prepare($sql);
                 $status  = $stmt->execute();
                 $list = $stmt->fetchAll();
              
     ?>
-                <div class="container">
-                    <div class="container" style="margin-top:100px;">
-                        <div class="row  justify-content-around align-item-center">
-                            <?php
+            <div class="container">
+                <div class="container" style="margin-top:100px;">
+                    <div class="row  justify-content-around align-item-center">
+                        <?php
                 if(is_array($list)){
                 foreach ($list as $key => $value) {
                // print_r($value);
                 ?>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
-                                <div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
+                            <div>
 
-                                    <div style="display:flex; justify-content: center; align-items: center;">
-                                        <!-- Button trigger modal -->
-                                        <!-- <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
-                                    Book Now!
-                                </button> -->
+                                <div style="display:flex; justify-content: center; align-items: center;">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
+                                        Rent Now!
+                                    </button>
 
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>"
-                                            tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Properties</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>
-                                                        <ul>
-                                                            <li><strong>make: </strong> <?php echo $value['make']?></li>
-                                                            <li><b>model: </b> <?php echo $value['model']?></li>
-                                                            <li><b>model year: </b> <?php echo $value['model_year']?>
-                                                            </li>
-                                                            <li><b>isAvailable: </b>
-                                                                <?php echo $value['registration_no']?></li>
-                                                            <li><b>mileage: </b> <?php echo $value['mileage']?></li>
-                                                            <li><b>Registration number: </b>
-                                                                <?php echo $value['registration_no']?></li>
-                                                            <li><b>insurance code: </b> <?php echo $value['mileage']?>
-                                                            </li>
-                                                        </ul>
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>"
+                                        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Properties</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                    <ul>
+                                                        <li><strong>make: </strong> <?php echo $value['make']?></li>
+                                                        <li><b>model: </b> <?php echo $value['model']?></li>
+                                                        <li><b>model year: </b> <?php echo $value['model_year']?>
+                                                        </li>
 
-                                                        <button type="button" class="btn btn-primary"><a
-                                                                href="bookform.php?carno=<?php echo $value['registration_no']?>"
-                                                                style="text-decoration:none; color:#fff"> Book Now!
-                                                            </a></button>
+                                                    </ul>
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
 
-                                                    </div>
+                                                    <button type="button" class="btn btn-primary"><a href="login.php"
+                                                            style="text-decoration:none; color:#fff"> Book Now!
+                                                        </a></button>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div>
-                                        <img src="casset/<?php echo $value['car_images'] ?>" alt="car"
-                                            style="width:100%;">
-                                        </center>
-                                        <p>Car details:
-                                        <ul>
-                                            <li><b>model: </b> <?php echo $value['model']?></li>
-                                            <li><b>model year: </b> <?php echo $value['model_year']?>
-                                            </li>
-                                            <li><b>mileage: </b> <?php echo $value['mileage']?></li>
-                                            <li><b>price_per_hour: $</b> <?php echo $value['price_per_hour']?></li>
+                                <div>
+                                    <img src="casset/<?php echo $value['car_images'] ?>" alt="car" style="width:100%;">
+                                    </center>
+                                    <p>Car details:
+                                    <ul>
+                                        <li><b>model: </b> <?php echo $value['model']?></li>
+                                        <li><b>model year: </b> <?php echo $value['model_year']?>
+                                        </li>
+                                        <li><b>price_per_hour: $</b> <?php echo $value['price_per_hour']?></li>
 
-                                        </ul>
-                                        </p>
-                                    </div>
+                                    </ul>
+                                    </p>
                                 </div>
                             </div>
-                            <?php } } ?>
                         </div>
+                        <?php } } ?>
+                    </div>
+                </div>
+            </div>
+
+            <?php 
+                $sql = "SELECT * FROM `cars`";
+                $stmt = $connection->prepare($sql);
+                $status  = $stmt->execute();
+                $list = $stmt->fetchAll();
+             
+    ?>
+            <div class="container">
+                <div class="container" style="margin-top:100px;">
+                    <div class="row  justify-content-around align-item-center">
+                        <?php
+                if(is_array($list)){
+                foreach ($list as $key => $value) {
+               // print_r($value);
+                ?>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
+                            <div>
+
+                                <div style="display:flex; justify-content: center; align-items: center;">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
+                                        Rent Now!
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>"
+                                        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Properties</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                    <ul>
+                                                        <li><strong>make: </strong> <?php echo $value['make']?></li>
+                                                        <li><b>model: </b> <?php echo $value['model']?></li>
+                                                        <li><b>model year: </b> <?php echo $value['model_year']?></li>
+                                                        </li>
+
+                                                    </ul>
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+
+                                                    <button type="button" class="btn btn-primary"><a href="login.php"
+                                                            style="text-decoration:none; color:#fff"> Book Now!
+                                                        </a></button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <img src="casset/<?php echo $value['car_images'] ?>" alt="car" style="width:100%;">
+                                </center>
+                                <p>Car details:
+                                <ul>
+                                    <li><b>model: </b> <?php echo $value['model']?></li>
+                                    <li><b>model year: </b> <?php echo $value['model_year']?>
+                                    </li>
+                                    <li><b>price_per_hour: $</b> <?php echo $value['price_per_hour']?></li>
+
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                        <?php } } ?>
                     </div>
                 </div>
     </section>
 
-
     <hr>
     </div>
-
-
     </div>
-
-    <!-- <div class="container col-lg-6 col-md-6 col-sm-6 col-xs-6  mt-5" style="align-items: center; top:+60px;  border: 6px  #05294b solid; background-color: #fff; padding: 14px 40px; -->
-
-    <!-- <form action="processlogin.php" id="myform" method="Post">
-            <div class="container">
-                <h2 class="text-center pb-5"><strong>SansPareil.Rentals</strong></h2>
-
-                <div class="input-control">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" name="email" class="form-control valid">
-                    <div class="error"></div>
-                </div>
-
-
-                <div class="input-control">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" name="password" class="form-control valid">
-                    <div class="error"></div>
-                </div>
-
-                <button type="button" id="login" value="login" name="login" class="p-2 px-5 mt-3 rounded float-left"
-                    style="background-color: #22BB14;" onclick="validlogin()">LOGIN</button>
-                <p class="text-center pt-5">Or</p>
-
-                <p class="text-center"><a href="sign_up.php"> Sign Up</a></p>
-            </div>
-        </form> -->
-
-
-
-
-    <!-- </div> -->
 
     <div class="container p-5 mt-5 mb-5">
         <div class="row">
@@ -323,56 +395,64 @@ include 'config.php';
     </div>
     </div>
 
-    <section id="about">
-        <div class="container-fluid" style="background-color:#05294b;">
-            <div class="container text-center" style="padding:20px; background-color:#05294b; color:#fff;">
-                <h3 class="p-3 align-left">About us</h3>
-                <p>SansPareil.Rentals is an independent car rental company dealing in long-term
-                    vehicle leasing and medium-term vehicle leasing.
-                    We are based in Accra, Ghana carrying out our operations across the country</p>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
-                <div class="container bg-light" style="color: black; justify-content: center;">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mt-5 text-center">
-                            <p><strong>LOCATION </strong> : Achimota, Mile7</p>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mt-5 text-center">
-                            <p><strong>EMAIL </strong> : hannahmaamleyosae@gmail.com</p>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mt-5 text-center">
-                            <p><strong><a href="mailto:hannahmaamleyosae@gmail.com"> Contact-us </a></p>
-                        </div>
+</body>
+<footer style="height: 400px; background-color:black;">
+    <div class="container">
+        <div class="row">
+
+
+            <div class="container p-5 mt-5 mb-5">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <img src="casset/carlogo.PNG" alt="car image">
+
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left">
+                        <p><a href="index.php?#cars"
+                                style="text-decoration: none; text-align:center; font-size:20px; color:#fff;">Cars</a>
+                        </p>
+                        <p><a href="login.php"
+                                style="text-decoration: none; text-align:center; font-size:20px; color:#fff;">Book
+                                car</a></p>
+                        <p><a href="index.php?#cars"
+                                style="text-decoration: none; text-align:center; font-size:20px; color:#fff;">Rent
+                                Car</a></p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left">
+                        <p><a href="index.php"
+                                style="text-decoration: none; text-align:center; font-size:20px; color:#fff">Blog</a>
+                        </p>
+                        <p><a href="about.php"
+                                style="text-decoration: none; text-align:center; font-size:20px; color:#fff">About
+                                us</a></p>
+                        <p><a href="contact.php"
+                                style="text-decoration: none; text-align:center; font-size:20px; color:#fff">Contact</a>
+                        </p>
+
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left">
+                        <p><a href="login.php"
+                                style="text-decoration: none; text-align:center; font-size:20px; color:#fff;">Login</a>
+                        </p>
+                        <p><a href="sign_up.php"
+                                style="text-decoration: none; text-align:center; font-size:20px; color:#fff;">Sign
+                                Up</a></p>
+                        <p><a href="login.php"
+                                style="text-decoration: none; text-align:center; font-size:20px; color:#fff;">Profile</a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <hr>
+        <hr style="color: #fff;">
+        <p class="text-center text-light"> Copyright &copy 2023. All Rights Reserved</p>
+    </div>
+    </div>
 
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script>
-    function validlogin() {
-
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-
-        var errorholder = true;
-
-        if (email == '' || password == '') {
-            alert("All fields required");
-            return false;
-        } else {
-            myform.submit();
-        }
-
-
-    }
-    </script>
-</body>
+</footer>
 
 </html>

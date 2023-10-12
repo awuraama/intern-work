@@ -18,7 +18,7 @@ $list = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hannah Osae | Rental System</title>
+    <title>Rental System</title>
     <style>
     body {
         display: flex;
