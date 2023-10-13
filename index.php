@@ -33,12 +33,7 @@ include 'config.php';
 
                 <div class="collapse navbar-collapse " id="navmenu">
                     <ul class="navbar_nav  ms-auto list-unstyled ">
-                        <!-- <li class="nav-item list-inline-item">
-                                <a href="login.php" class="nav-link text-light">Login</a>
-                            </li>
-                            <li class="nav-item list-inline-item text-light">
-                                <a href="#login" class="nav-link text-light">Sign up</a>
-                            </li> -->
+
                         <li class="nav-item list-inline-item text-light">
                             <a href="#cars" class="nav-link text-light">Cars</a>
                         </li>
@@ -131,60 +126,51 @@ include 'config.php';
 
     </div>
 
+    <form action="processcars.php" method="GET">
+        <section id="cars">
+            <div class="container">
+                <div class="container" style="margin-top: +100px;">
+                    <h4 class="text-left" style="font-size: 40px; color:black;">CARS</h4>
+                    <hr>
 
-    <section id="cars">
+                    <div class="d-flex justify-content-around p-4">
 
-        <div class="container">
-            <div class="container" style="margin-top: +100px;">
-                <h4 class="text-left" style="font-size: 40px; color:black;">CARS</h4>
-                <hr>
 
-                <div class="d-flex justify-content-around p-4">
-                    <div class="btn-group ">
-                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
-                            data-bs-toggle="dropdown">All</button>
+                        <?php
+                        $model = 'model';
+                        $car_code = 'car_code';
 
-                    </div>
+                        $sql = "SELECT * FROM `car_category`";
+                        $stmt = $connection->prepare($sql);
+                        $status  = $stmt->execute();
+                        $list = $stmt->fetchAll();
 
-                    <div class="btn-group ">
-                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
-                            data-bs-toggle="dropdown">Sedan</button>
+                        if(is_array($list)){
+                        foreach ($list as $key => $value) {
+                    ?>
+                        <div class="btn-group ">
 
-                    </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
 
-                    <div class="btn-group ">
-                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
-                            data-bs-toggle="dropdown">Wagon</button>
+                                <a href="index.php?carcodetype=<?php echo $value['car_code']; ?>" style="text-decoration: none; color:#fff; background-color:black;"   class=" px-5  rounded"
+                                    ><?php echo  $value['car_type']; ?>
+                        </a>
+                            </div>
+                        </div>
 
-                    </div>
+                      
+            <?php } } ?>
 
-                    <div class="btn-group ">
-                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
-                            data-bs-toggle="dropdown">Van</button>
 
-                    </div>
-
-                    <div class="btn-group ">
-                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
-                            data-bs-toggle="dropdown">Coupe</button>
-
-                    </div>
-
-                    <div class="btn-group ">
-                        <button type="button" class="dropdown-toggle px-5 bg-light rounded"
-                            data-bs-toggle="dropdown">Pick
-                            up</button>
-
-                    </div>
-                </div>
             </div>
+            </div>
+    </form>
 
-
-            <!-- <a href="login.php" style="text-decoration:none; color:#fff;"> <button type="submit" id="book" value="book"
+    <!-- <a href="login.php" style="text-decoration:none; color:#fff;"> <button type="submit" id="book" value="book"
                     name="book" class="p-2 px-5 mt-3 rounded float-end text-light m-5" style="background-color:black;"
                     onclick=""> BOOK A CAR! </button></a> -->
 
-            <!-- <div class="row  justify-content-around align-item-center">
+    <!-- <div class="row  justify-content-around align-item-center">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5">
                     <p style="padding:50px;">
                         We all have fantasies about our ideal automobiles, but only a select few people put in the
@@ -214,86 +200,91 @@ include 'config.php';
 
 
 
-            <?php 
+    <?php 
                 $sql = "SELECT * FROM `cars`";
                 $stmt = $connection->prepare($sql);
                 $status  = $stmt->execute();
                 $list = $stmt->fetchAll();
              
     ?>
-            <div class="container">
-                <div class="container" style="margin-top:100px;">
-                    <div class="row  justify-content-around align-item-center">
-                        <?php
+    <div class="container">
+        <input type="hidden" value="<?php //echo $_POST['carcodetype']; ?>" name="carcodetype">
+        <div class="container" style="margin-top:100px;">
+            <div class="row  justify-content-around align-item-center">
+                <?php
+                if(empty($_POST['carcodetype'])){
+                  //  echo 'hi you';
+                                   // print_r($_POST['carcodetype']);
+
                 if(is_array($list)){
                 foreach ($list as $key => $value) {
                // print_r($value);
                 ?>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
-                            <div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
+                    <div>
 
-                                <div style="display:flex; justify-content: center; align-items: center;">
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
-                                        Rent Now!
-                                    </button>
+                        <div style="display:flex; justify-content: center; align-items: center;">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
+                                Rent Now!
+                            </button>
 
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>"
-                                        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Properties</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                    <ul>
-                                                        <li><strong>make: </strong><?php echo $value['make']?></li>
-                                                        <li><b>model: </b><?php echo $value['model']?></li>
-                                                        <li><b>model year: </b><?php echo $value['model_year']?></li>
-                                                        </li>
+                            <!-- Modal -->
+                            <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Properties</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>
+                                            <ul>
+                                                <li><strong>make: </strong><?php echo $value['make']?></li>
+                                                <li><b>model: </b><?php echo $value['model']?></li>
+                                                <li><b>model year: </b><?php echo $value['model_year']?></li>
+                                                </li>
 
-                                                    </ul>
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger"
-                                                        data-bs-dismiss="modal">Close</button>
+                                            </ul>
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger"
+                                                data-bs-dismiss="modal">Close</button>
 
-                                                    <button type="button" class="btn btn-primary"><a href="login.php"
-                                                            style="text-decoration:none; color:#fff"> Book Now!
-                                                        </a></button>
+                                            <button type="button" class="btn btn-primary"><a href="login.php"
+                                                    style="text-decoration:none; color:#fff"> Book Now!
+                                                </a></button>
 
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <img src="casset/<?php echo $value['car_images'] ?>" alt="car" style="width:100%;">
-                                </center>
-                                <p>Car details:
-                                <ul>
-                                    <li><b>model: <?php echo $value['model']?></b></li>
-                                    <li><b>model year: <?php echo $value['model_year']?></b>
-                                    </li>
-                                    <li><b>price_per_day: $ <?php echo $value['price_per_day']?></b></li>
-
-                                </ul>
-                                </p>
                             </div>
                         </div>
-                        <?php } } ?>
+
+                        <img src="casset/<?php echo $value['car_images'] ?>" alt="car" style="width:100%;">
+                        </center>
+                        <p>Car details:
+                        <ul>
+                            <li><b>model: <?php echo $value['model']?></b></li>
+                            <li><b>model year: <?php echo $value['model_year']?></b>
+                            </li>
+                            <li><b>price_per_day: $ <?php echo $value['price_per_day']?></b></li>
+
+                        </ul>
+                        </p>
                     </div>
                 </div>
-    </section>
+                <?php } }} ?>
+            </div>
+        </div>
+        </section>
 
-    <hr>
+        <hr>
     </div>
     </div>
 
@@ -317,6 +308,40 @@ include 'config.php';
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script>
+    // function carsort(){
+
+    //     if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    //         $car_code = $_GET["car_code"];
+    //         $model = $_GET["model"];
+
+    //         if($model == 'sedan' && $car_code == 'sdn'){
+    //             $sql = "SELECT * FROM cars WHERE car_code =:sdn AND model = :sedan";
+
+    //             $stmt = $connection->prepare($sql);
+    //             $stmt->bindParam(':sdn', $car_code);
+    //             $stmt->bindParam(':sedan', $model);
+    //              $stmt->execute();
+    //         }
+    //     } else if($model == 'coupe' && $car_code == 'cpe'){
+    //         $sql = "SELECT * FROM cars WHERE car_code =:cpe AND model = :coupe";
+
+    //         $stmt = $connection->prepare($sql);
+    //         $stmt->bindParam(':cpe', $car_code);
+    //         $stmt->bindParam(':coupe', $model);
+    //          $stmt->execute();
+
+    //     }else if($model == 'crossover' && $car_code == 'csr'){
+    //         $sql = "SELECT * FROM cars WHERE car_code =:cpe AND model = :coupe";
+
+    //         $stmt = $connection->prepare($sql);
+    //         $stmt->bindParam(':csr', $car_code);
+    //         $stmt->bindParam(':crossover', $model);
+    //          $stmt->execute();
+
+    //     }
+    // }
     </script>
 
 </body>
