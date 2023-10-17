@@ -30,6 +30,17 @@ include 'config.php';
 
     }
 
+
+
+
+
+
+
+
+
+
+    
+
     #form {
         width: 400px;
         background-color: #fff;
@@ -44,7 +55,7 @@ include 'config.php';
 
     <form action="processsignup.php" id="form" method="Post">
         <div class="container">
-            <h2 class="text-center pb-5"><strong>SansPareil.Rentals</strong></h2>
+            <h2 class="text-center pb-5"><strong>Register An Account</strong></h2>
             <div class="input-control">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" id="name" name="name" class="form-control" onkeyup="validatename(this)" required>

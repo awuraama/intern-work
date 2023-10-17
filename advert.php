@@ -99,6 +99,8 @@ $list = $stmt->fetchAll();
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
     <style>
     body {
         /* background-image: linear-gradient(rgba(0, 0, 0, 0.5),
@@ -107,7 +109,7 @@ $list = $stmt->fetchAll();
             background-size: cover;
             z-index: -1; */
         /* overflow: hidden; */
-       
+
 
     }
 
@@ -154,21 +156,38 @@ $list = $stmt->fetchAll();
 
                 <div class="collapse navbar-collapse " id="navmenu">
                     <ul class="navbar_nav  ms-auto list-unstyled " style="color: #fff !important;">
+
                         <li class="nav-item list-inline-item">
-                            <a href="sign_up.php" class="nav-link">Previous</a>
-                        </li>
-                        <li class="nav-item list-inline-item">
+                            <div class="btn-group ">
+
+                                <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown"><i
+                                        class="bi-person-circle"><?php echo $_SESSION['name'] ?></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item list-inline-item">
+                                        <!-- <form action="processlogout.php" method="POST"> -->
+                                        <a class="dropdown-item text-primary" href="processlogout.php">Logout</a>
+                                        <!-- </form> -->
+                                    </li>
+                                    <li><a class="dropdown-item text-primary" href="changepassword.php"
+                                            style="text-decoration:none; color:#fff"> Change
+                                            Password</a></li>
+                                </ul>
+                            </div>
+                </div>
+                </li>
+                <!-- <li class="nav-item list-inline-item">
                             <form action="processlogout.php" method="POST">
                                 <button class="px-3 text-light" style="background-color: #05294B;">Logout</button>
                             </form>
-                        </li>
+                        </li> -->
 
-                    </ul>
-                </div>
+                </ul>
+            </div>
         </nav>
     </div>
 
-   
+
     <div class="container">
         <div class="container" style="margin-top:100px;">
             <div class="row  justify-content-around align-item-center">
@@ -183,15 +202,16 @@ $list = $stmt->fetchAll();
                         <div style="display:flex; justify-content: center; align-items: center;">
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
-                                data-bs-toggle="modal" data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
+                                data-bs-toggle="modal"
+                                data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
                                 Book Now!
                             </button>
 
 
 
                             <!-- Modal -->
-                            <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
+                            <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -207,7 +227,8 @@ $list = $stmt->fetchAll();
                                                 <li><b>model year: </b> <?php echo $value['model_year']?></li>
                                                 <li><b>isAvailable: </b> <?php echo $value['registration_no']?></li>
                                                 <li><b>mileage: </b> <?php echo $value['mileage']?></li>
-                                                <li><b>Registration number: </b> <?php echo $value['registration_no']?></li>
+                                                <li><b>Registration number: </b> <?php echo $value['registration_no']?>
+                                                </li>
                                                 <li><b>insurance code: </b> <?php echo $value['mileage']?></li>
                                             </ul>
                                             </p>
@@ -216,7 +237,9 @@ $list = $stmt->fetchAll();
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Close</button>
 
-                                            <button type="button" class="btn btn-primary"><a href="bookform.php?carno=<?php echo $value['registration_no']?>" style="text-decoration:none; color:#fff"> Book Now! </a></button>
+                                            <button type="button" class="btn btn-primary"><a
+                                                    href="bookform.php?carno=<?php echo $value['registration_no']?>"
+                                                    style="text-decoration:none; color:#fff"> Book Now! </a></button>
 
                                         </div>
                                     </div>
@@ -235,9 +258,9 @@ $list = $stmt->fetchAll();
         </div>
 
         <div>
-            <button type="change" id="change" value="change" name="change"
+            <!-- <button type="change" id="change" value="change" name="change"
                 class="p-2 px-5 mt-3 rounded bg-primary float-end text-light m-5" onclick=""><a
-                    href="changepassword.php" style="text-decoration:none; color:#fff"> Change Password</a></button>
+                    href="changepassword.php" style="text-decoration:none; color:#fff"> Change Password</a></button> -->
             <button type="add" id="add" value="add" name="add"
                 class="p-2 px-5 mt-3 rounded bg-success float-end text-light m-5" onclick=""><a href="add_car.php"
                     style="text-decoration:none; color:#fff"> Add A Car </a></button>
