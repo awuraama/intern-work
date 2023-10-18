@@ -14,7 +14,7 @@ function test_input($data)
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["registration_no"]) && empty($_POST["make"])  && empty($_POST["model"])  && empty($_POST["model_year"])  && empty($_POST["mileage"])  && empty($_POST["insurance_code"])  && empty($_POST["amount_per_hour"]) && empty($_POST["is_available"])  && empty($_POST["myfileupload"])) {
+    if (empty($_POST["registration_no"]) && empty($_POST["make"])  && empty($_POST["model"])  && empty($_POST["model_year"])  && empty($_POST["mileage"])   && empty($_POST["price_per_day"])  && empty($_POST["myfileupload"])) {
         $nameErr = "Required fields cannot be empty";
     } else {
         $hasError = false;
@@ -44,15 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errorString .= "Only numbers allowed";
         }
        // echo('3');
-
-        $is_available = test_input($_POST["is_available"]);
-        
+ 
         $mileage = test_input($_POST["mileage_1"]);
-        
 
-
-        $insurance_code = test_input($_POST["insurance_code"]);
-        $amount_per_hour = test_input($_POST["amount_per_hour"]);
+        $price_per_day = test_input($_POST["price_per_day"]);
         
        // $car_images = test_input($_POST["myfileupload"]);
 
@@ -68,17 +63,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $car_images=$_FILES["myfileupload"]["name"];
 //exit;
 
-        $sql = "INSERT INTO cars (registration_no,  make,  model_year, mileage, insurance_code, amount_per_hour, is_available, car_images ) VALUES (:registration_no,  :make, :model_year, :mileage, :insurance_code, :amount_per_hour,:is_available, :myfileupload )";
+        $sql = "INSERT INTO cars (registration_no, model,  make,  model_year, mileage, price_per_day, car_images ) VALUES (:registration_no, :model,  :make, :model_year, :mileage, :price_per_day, :myfileupload )";
 
         $stmt = $connection->prepare($sql);
         $stmt->bindParam(':registration_no', $registration_no);
+        $stmt->bindParam(':model', $model);
         $stmt->bindParam(':make', $make);
         $stmt->bindParam(':model_year', $model_year);
         $stmt->bindParam(':mileage', $mileage);
-         $stmt->bindParam(':insurance_code', $insurance_code);
-         $stmt->bindParam(':amount_per_hour', $amount_per_hour);
-         $stmt->bindParam(':is_available', $is_available);
-
+        $stmt->bindParam(':price_per_day', $price_per_day);
         $stmt->bindParam(':myfileupload', $car_images);
 
         $status  = $stmt->execute();

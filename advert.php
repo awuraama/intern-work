@@ -256,17 +256,7 @@ $list = $stmt->fetchAll();
                 <?php } } ?>
             </div>
         </div>
-
-        <div>
-            <!-- <button type="change" id="change" value="change" name="change"
-                class="p-2 px-5 mt-3 rounded bg-primary float-end text-light m-5" onclick=""><a
-                    href="changepassword.php" style="text-decoration:none; color:#fff"> Change Password</a></button> -->
-            <button type="add" id="add" value="add" name="add"
-                class="p-2 px-5 mt-3 rounded bg-success float-end text-light m-5" onclick=""><a href="add_car.php"
-                    style="text-decoration:none; color:#fff"> Add A Car </a></button>
-        </div>
-        <!-- <button type="previous" id="previous" value="previous" name="previous"
-                class="p-2 px-5 mt-3 rounded bg-success float-end text-light m-5" onclick="">Previous</button> -->
+ 
     </div>
     </div>
 

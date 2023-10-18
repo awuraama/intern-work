@@ -1,152 +1,185 @@
 <?php
-
 include 'config.php';
 if(!isset($_SESSION['id'])){
-  header('Location: index.php');
+    header('Location: index.php');
 }
-
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["registration_no"]) && empty($_POST["make"])  && empty($_POST["model"])  && empty($_POST["model_year"])  && empty($_POST["mileage"])  && empty($_POST["insurance_code"])  && empty($_POST["amount_per_hour"]) && empty($_POST["is_available"])  && empty($_POST["myfileupload"])) {
-        $nameErr = "Required fields cannot be empty";
-    } else {
-        $hasError = false;
-        $errorString = '';
-
-        $registration_no = test_input($_POST["registration_no"]);
-
-        $make = test_input($_POST["make"]);
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $make)) {
-            $hasError = true;
-            $errorString .= "Only letters and white space allowed";
-        }
- //echo('1');
-
-        $model = test_input($_POST["model"]);
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $model)) {
-            $hasError = true;
-            $errorString .= "Only letters and white space allowed";
-        }
-
-        //echo('2');
+?>
 
 
-        $model_year = test_input($_POST["model_year"],);
-        if (!preg_match("/^\d+$/", $model_year)) {
-            $hasError = true;
-            $errorString .= "Only numbers allowed";
-        }
-       // echo('3');
 
-        $is_available = test_input($_POST["is_available"]);
-        
-        $mileage = test_input($_POST["mileage_1"]);
-        
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+    
+    </style>
+</head>
 
-        $insurance_code = test_input($_POST["insurance_code"]);
-        $amount_per_hour = test_input($_POST["amount_per_hour"]);
-        
-       // $car_images = test_input($_POST["myfileupload"]);
-
-
-        
-
-        if($hasError){
-            echo $errorString;
-            exit;
-        }
-        
-       // print_r($mileage);
-        $car_images=$_FILES["myfileupload"]["name"];
-//exit;
-
-        $sql = "INSERT INTO cars (registration_no,  make,  model_year, mileage, insurance_code, amount_per_hour, is_available, car_images ) VALUES (:registration_no,  :make, :model_year, :mileage, :insurance_code, :amount_per_hour,:is_available, :myfileupload )";
-
-        $stmt = $connection->prepare($sql);
-        $stmt->bindParam(':registration_no', $registration_no);
-        $stmt->bindParam(':make', $make);
-        $stmt->bindParam(':model_year', $model_year);
-        $stmt->bindParam(':mileage', $mileage);
-         $stmt->bindParam(':insurance_code', $insurance_code);
-         $stmt->bindParam(':amount_per_hour', $amount_per_hour);
-         $stmt->bindParam(':is_available', $is_available);
-
-        $stmt->bindParam(':myfileupload', $car_images);
-
-        $status  = $stmt->execute();
-
-        $target_dir = "casset/";
-        $target_file = $target_dir . basename($_FILES["myfileupload"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+<body>
+    <div class="container col-lg-6 col-md-6 col-sm-6 col-xs-6  mt-5">
 
 
-        $check = getimagesize($_FILES["myfileupload"]["tmp_name"]);
-        if($check !== false) {
-          echo "File is an image - " . $check["mime"] . ".";
-          $uploadOk = 1;
+        <form action="processaddcar.php" id="form" method="POST" enctype="multipart/form-data">
+            <div class="container">
+                <h2 class="text-center pb-2"><strong>Car Upload Details</strong></h2>
+                <div class="input-control">
+                    <label for="registration_no" class="form-label">Registration No</label>
+                    <input type="text" id="registration_no" name="registration_no" class="form-control valid">
+                    <div class="error text-danger"></div>
+
+
+                </div>
+
+
+
+                <div class="input-control">
+                    <label for="make" class="form-label">Make</label>
+                    <input type="text" id="make" name="make" class="form-control valid" onkeyup="validateaddcar(this)">
+                    <div class="error text-danger"></div>
+                </div>
+
+                <div class="input-control">
+                    <label for="model" class="form-label">Model</label>
+                    <input type="text" id="model" name="model" class="form-control valid"
+                        onkeyup="validateaddcar(this)">
+                    <div class="error text-danger"></div>
+                </div>
+
+                <div class="input-control">
+                    <label for="model_year" class="form-label">Model year</label>
+                    <input type="text" id="model_year" name="model_year" class="form-control valid"
+                        onkeyup="validaddcar(this)">
+                    <div class="error text-danger"></div>
+                </div>
+
+                <div class="input-control">
+                    <label for="mileage" class="form-label">Mileage</label>
+                    <input type="text" id="mileage_1" name="mileage_1" class="form-control valid">
+                    <div class="error text-danger"></div>
+                </div>
+
+                 
+
+                <div class="input-control">
+                    <label for="price_per_day" class="form-label">Amount per day</label>
+                    <input type="text" id="price_per_day" name="price_per_day" class="form-control valid">
+                    <div class="error text-danger"></div>
+                </div>
+
+
+                
+
+            </div>
+            <!-- <div class="container col-lg-6 col-md-6 col-sm-6 col-xs-6  mt-5"> -->
+    <div class=" container pt-4" style="margin-top: 20px;">
+             <input type="file" name="myfileupload">
+            <input type="submit" value="Submit" name="addsubmit">
+
+    </div>
+     </div>
+    </form>
+   
+</div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+    // $(document).ready(function() {
+    //     $('.valid').on('keyup', function() {
+    //         $(this).css('border-color', 'green');
+    //     })
+
+    //     $('.valid').on('change', function() {
+    //         $(this).css('border-color', 'green');
+    //     })
+    // })
+
+    function validateaddcar(input) {
+        const value = $(input).val();
+        const pattern = /^[a-zA-Z-' ]*$/;
+
+        if (!pattern.test(value)) {
+            $(input).next('.error').html("Only letters and white space allowed");
         } else {
-          echo "File is not an image.";
-          $uploadOk = 0;
+            $(input).next('.error').html("");
         }
 
-        if (file_exists($target_file)) {
-            echo "Sorry, file already exists.";
-            $uploadOk = 0;
-          }
-          
-          // Check file size
-          if ($_FILES["myfileupload"]["size"] > 500000) {
-            echo "Sorry, your file is too large.";
-            $uploadOk = 0;
-          }
-          
-          // Allow certain file formats
-          if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-          && $imageFileType != "gif" ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadOk = 0;
-          }
-          
-          // Check if $uploadOk is set to 0 by an error
-          if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
-          // if everything is ok, try to upload file
-          } else {
-            if (move_uploaded_file($_FILES["myfileupload"]["tmp_name"], $target_file)) {
-              echo "The file ". htmlspecialchars( basename( $_FILES["myfileupload"]["name"])). " has been uploaded.";
-            } else {
-              echo "Sorry, there was an error uploading your file.";
-            }
-          }
-          
 
-        if ($status) {
-            echo 'inserted';
-             header('Location:advert.php');
-        } else {
-            echo 'failed';
-        }
     }
-}
 
- 
+    function validaddcar(input) {
+        const value = $(input).val();
+        const pattern = /^\d+$/;
+
+        if (!pattern.test(value)) {
+            $(input).next('.error').html("Only numbers allowed");
+        } else {
+            $(input).next('.error').html("");
+        }
+
+
+    }
+
+    // function validemail(input) {
+    //     const value = $(input).val();
+    //     const pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+
+    //     if (!pattern.test(value)) {
+    //         $(input).next('.error').html("should match 'email@example.com'");
+    //     } else {
+    //         $(input).next('.error').html("");
+    //     }
+
+
+    // }
+
+
+
+    function validate() {
+
+
+        var password = document.getElementById('password').value;
+        var confirm_password = document.getElementById('confirm_password').value;
+
+        var errorholder = true;
+
+        var validElements = document.querySelectorAll('.valid');
+        validElements.forEach(function(element) {
+            var indval = element.value;
+
+
+            if (indval == '') {
+                document.getElementById(element.id).setAttribute('style', 'border:2px  solid red !important;');
+                event.preventDefault();
+                errorholder = false;
+
+            } else if (indval != '') {
+                document.getElementById(element.id).setAttribute('style',
+                    'border:2px  solid green !important;');
+
+            }
+
+        });
 
 
 
 
 
+    }
+    </script>
 
+</body>
 
-
-  
-
-// Check if file already exists
+</html>

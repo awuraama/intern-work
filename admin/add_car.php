@@ -26,7 +26,7 @@ if(!isset($_SESSION['id'])){
     <div class="container col-lg-6 col-md-6 col-sm-6 col-xs-6  mt-5">
 
 
-        <form action="processaddcar.php" id="form" method="POST" enctype="multipart/form-data">
+        <form action="../processaddcar.php" id="form" method="POST" enctype="multipart/form-data">
             <div class="container">
                 <h2 class="text-center pb-2"><strong>Car Upload Details</strong></h2>
                 <div class="input-control">
@@ -65,31 +65,16 @@ if(!isset($_SESSION['id'])){
                     <div class="error text-danger"></div>
                 </div>
 
-                <div class="input-control">
-                    <label for="insurance_code" class="form-label">Insurance Code</label>
-                    <input type="text" id="insurance_code" name="insurance_code" class="form-control valid">
-                    <div class="error text-danger"></div>
-                </div>
+                 
 
                 <div class="input-control">
-                    <label for="amount_per_hour" class="form-label">Amount per hour</label>
-                    <input type="text" id="amount_per_hour" name="amount_per_hour" class="form-control valid">
+                    <label for="price_per_day" class="form-label">Price per day</label>
+                    <input type="text" id="price_per_day" name="price_per_day" class="form-control valid">
                     <div class="error text-danger"></div>
                 </div>
 
 
-                <div class="float-end pt-2">
-                    <fieldset required>
-                        <fieldset>
-                            <span style="padding-right: 12px;">Is Available:</span>
-                            <label for="true">true</label>
-                            <input type="radio" id="is_available" name="is_available" value="true">
-
-                            <label for="false">false</label>
-                            <input type="radio" id="is_available" name="is_available" value="false"><br>
-                        </fieldset>
-                    </fieldset>
-                </div>
+                
 
             </div>
             <!-- <div class="container col-lg-6 col-md-6 col-sm-6 col-xs-6  mt-5"> -->
