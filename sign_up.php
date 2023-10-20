@@ -30,17 +30,7 @@ include 'config.php';
 
     }
 
-
-
-
-
-
-
-
-
-
-    
-
+ 
     #form {
         width: 400px;
         background-color: #fff;
