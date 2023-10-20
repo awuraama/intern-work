@@ -148,7 +148,7 @@ function deleteRecord($id)
         <div class="col-md-2 bg-light d-none d-md-block sidebar">
             <div class="left-sidebar">
                 <ul class="nav flex-column sidebar-nav">
-                    <li><a href="#" class="link-active" title="Dashboard">
+                    <li><a href="#" class="link-active" title="Dashboard"  style="text-decoration: none; color:black;">
                             <span class="icon"><i class="fas fa-chart-bar"></i></span>
                             <span class="link-text">Dashboard</span>
                         </a></li>
@@ -187,7 +187,7 @@ function deleteRecord($id)
                         </a>
                     </li>
 
-                    <li><a href="#" title="Setting">
+                    <li><a href="#" title="Setting" style="text-decoration: none; color:black;">
                             <span class="icon"><i class="fas fa-cog"></i></span>
                             <span class="link-text">Setting</span>
                         </a></li>

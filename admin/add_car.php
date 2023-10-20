@@ -26,7 +26,7 @@ if(!isset($_SESSION['id'])){
     <div class="container col-lg-6 col-md-6 col-sm-6 col-xs-6  mt-5">
 
 
-        <form action="../processaddcar.php" id="form" method="POST" enctype="multipart/form-data">
+        <form action="processaddcar.php" id="form" method="POST" enctype="multipart/form-data">
             <div class="container">
                 <h2 class="text-center pb-2"><strong>Car Upload Details</strong></h2>
                 <div class="input-control">

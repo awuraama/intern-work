@@ -1,9 +1,6 @@
 <?php
 
 include 'config.php';
-if(!isset($_SESSION['id'])){
-  header('Location: index.php');
-}
 
 function test_input($data)
 {
@@ -11,25 +8,30 @@ function test_input($data)
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
-}
+  }
+  
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["registration_no"]) || empty($_POST["make"])  || empty($_POST["model"])  || empty($_POST["model_year"])  || empty($_POST["mileage"])   && empty($_POST["price_per_day"])  && empty($_POST["myfileupload"])) {
+      // var_dump($_POST);
+      header('Location:Dashboard.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["registration_no"]) && empty($_POST["make"])  && empty($_POST["model"])  && empty($_POST["model_year"])  && empty($_POST["mileage"])   && empty($_POST["price_per_day"])  && empty($_POST["myfileupload"])) {
-        $nameErr = "Required fields cannot be empty";
+      // die("qwbvcx");
+      $nameErr = "Required fields cannot be empty";
+
     } else {
-        $hasError = false;
-        $errorString = '';
+      $hasError = false;
+      $errorString = '';
+      
 
-        $registration_no = test_input($_POST["registration_no"]);
-
+      $registration_no = test_input($_POST["registration_no"]);
         $make = test_input($_POST["make"]);
         if (!preg_match("/^[a-zA-Z-' ]*$/", $make)) {
             $hasError = true;
             $errorString .= "Only letters and white space allowed";
         }
  //echo('1');
-
-        $model = test_input($_POST["model"]);
+ 
+ $model = test_input($_POST["model"]);
         if (!preg_match("/^[a-zA-Z-' ]*$/", $model)) {
             $hasError = true;
             $errorString .= "Only letters and white space allowed";
@@ -43,27 +45,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $hasError = true;
             $errorString .= "Only numbers allowed";
         }
-       // echo('3');
- 
+        // echo('3');
+        
         $mileage = test_input($_POST["mileage_1"]);
 
         $price_per_day = test_input($_POST["price_per_day"]);
         
-       // $car_images = test_input($_POST["myfileupload"]);
-
-
+        // $car_images = test_input($_POST["myfileupload"]);
+        
+        
         
 
         if($hasError){
             echo $errorString;
             exit;
-        }
-        
+          }
+          
        // print_r($mileage);
-        $car_images=$_FILES["myfileupload"]["name"];
+       $car_images=$_FILES["myfileupload"]["name"];
 //exit;
 
-        $sql = "INSERT INTO cars (registration_no, model,  make,  model_year, mileage, price_per_day, car_images ) VALUES (:registration_no, :model,  :make, :model_year, :mileage, :price_per_day, :myfileupload )";
+$sql = "INSERT INTO cars (registration_no, model,  make,  model_year, mileage, price_per_day, car_images ) VALUES (:registration_no, :model,  :make, :model_year, :mileage, :price_per_day, :myfileupload )";
 
         $stmt = $connection->prepare($sql);
         $stmt->bindParam(':registration_no', $registration_no);
@@ -76,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $status  = $stmt->execute();
 
-        $target_dir = "casset/";
+        $target_dir = "../casset/";
         $target_file = $target_dir . basename($_FILES["myfileupload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -124,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($status) {
             echo 'inserted';
-             header('Location:advert.php');
+             header('Location:Dashboard.php');
         } else {
             echo 'failed';
         }
