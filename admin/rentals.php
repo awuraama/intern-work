@@ -228,6 +228,18 @@ function deleteRecord($id)
     <section id="rentals">
         <h3>Rentals</h3>
         <hr>
+        <div class="col-md-5 mx-auto float-end">
+            
+            <div class="input-group">
+                <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
+                        type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
         <?php
   if (isset($_GET['del']) && !empty($_GET['del'])) {
     $deleterecord = $_GET['del'];
