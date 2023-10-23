@@ -9,7 +9,7 @@ function test_input($data)
     return $data;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if ( empty($_POST["email"])  && empty($_POST["password"])  ) {
         $nameErr = "Required fields cannot be empty";
     } else {
@@ -54,5 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo 'failed';
         }
     }
-}
+    }
+
 ?>

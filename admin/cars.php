@@ -136,7 +136,7 @@ function deleteRecord($id)
 
 <nav class="navbar navbar-dark fixed-top bg-dark text-light flex-md-nowrap p-0 shadow">
     <ul class="navbar-nav px-3">
-
+       
         <li class="nav-item text-nowrap">
             <a class="nav-link p-3" href="#"><span class="icon"><i class="fas fa-code"></i></span>Admin Panel</a>
         </li>
@@ -172,9 +172,8 @@ function deleteRecord($id)
     <div class="row">
         <div class="col-md-2 bg-light d-none d-md-block sidebar">
             <div class="left-sidebar">
-                <ul class="nav flex-column sidebar-nav">
-                    <li><a href="Dashboard.php" class="link-active" title="Dashboard"
-                            style="text-decoration: none; color:black;">
+            <ul class="nav flex-column sidebar-nav">
+                    <li><a href="Dashboard.php" class="link-active" title="Dashboard" style="text-decoration: none; color:black;">
                             <span class="icon"><i class="fas fa-chart-bar"></i></span>
                             <span class="link-text">Dashboard</span>
                         </a></li>
@@ -221,83 +220,98 @@ function deleteRecord($id)
 </div>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
- 
-    <section id="users">
-        <h3>Users</h3>
+    
+
+     
+
+
+    <section id="cars">
+        <h3>Cars</h3>
         <hr>
-        <div class="col-md-5 mx-auto float-end">
-            
-            <div class="input-group">
-                <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input">
-                <span class="input-group-append">
-                    <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
-                        type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </span>
-            </div>
-        </div>
-        <div class="d-flex justify-content-center col-lg-12">
+        <div class="row  justify-content-around align-item-center">
+            <?php 
+                $sql = "SELECT * FROM `cars`";
+                $stmt = $connection->prepare($sql);
+                $status  = $stmt->execute();
+                $list = $stmt->fetchAll();
+             
+    ?>
+            <div class="container">
+                <input type="hidden" value="<?php //echo $_POST['carcodetype']; ?>" name="carcodetype">
+                <div class="container" style="margin-top:100px;">
+                    <div class="row  justify-content-around align-item-center">
+                        <?php
+                if(empty($_POST['carcodetype'])){
+                  
 
+                if(is_array($list)){
+                foreach ($list as $key => $value) {
+                 ?>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
+                            <div>
 
-            <?php
-                    $sql = "SELECT * FROM `customer`";
-                    $stmt = $connection->prepare($sql);
-                    $status  = $stmt->execute();
-                    $list = $stmt->fetchAll();
-                ?>
+                                <div style="display:flex; justify-content: center; align-items: center;">
+                                    <!-- Button trigger modal -->
+                                    <!-- <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
+                                        Rent Now!
+                                    </button> -->
 
-            <div class="table-responsive p-5">
-                <div class="table-striped table-bordered table-hover">
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>"
+                                        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Properties</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                    <ul>
+                                                        <li><strong>make: </strong><?php echo $value['make']?></li>
+                                                        <li><b>model: </b><?php echo $value['model']?></li>
+                                                        <li><b>model year: </b><?php echo $value['model_year']?></li>
+                                                        </li>
 
-                    <form action="" method="get" id="subscriber">
-                        <input type="hidden" name="del" id="del">
-                        <input type="hidden" name="update_key" id="update_key">
+                                                    </ul>
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Close</button>
 
+                                                    <button type="button" class="btn btn-primary"><a href="login.php"
+                                                            style="text-decoration:none; color:#fff"> Book Now!
+                                                        </a></button>
 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <img src="../casset/<?php echo $value['car_images'] ?>" alt="car" style="width:100%;">
+                                </center>
+                                <p>Car details:
+                                <ul>
+                                    <li><b>model: <?php echo $value['model']?></b></li>
+                                    <li><b>model year: <?php echo $value['model_year']?></b>
+                                    </li>
+                                    <li><b>price_per_day: $ <?php echo $value['price_per_day']?></b></li>
 
-                        <table style="width: 100% !important;">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>NAME</th>
-                                    <th>EMAIL</th>
-                                    <th>ADDRESS</th>
-                                    <th>CONTACT</th>
-                                    <th>GENDER</th>
-                                    <th>DELETE</th>
-
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $i = 1;
-                         foreach ($list as $value) { ?>
-                                <tr>
-                                    <td><?php echo $i++ ?></td>
-                                    <td><?php echo $value['name'] ?></td>
-                                    <td><?php echo $value['email'] ?></td>
-                                    <td><?php echo $value['address'] ?></td>
-                                    <td><?php echo $value['contact'] ?></td>
-                                    <td><?php echo $value['gender'] ?></td>
-                                    <td><button type="submit"
-                                            onclick="document.getElementById('del').value = '<?= $value['id']; ?>';">Delete</button>
-                                    </td>
-
-                                </tr>
-                                <?php } ?>
-
-                            </tbody>
-                        </table>
-                    </form>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                        <?php } }} ?>
+                    </div>
                 </div>
-            </div>
-            <hr>
-        </div>
     </section>
 
-
+     
 </main>
 
 </body>

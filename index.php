@@ -57,8 +57,9 @@ include 'config.php';
                                     <li><a class="dropdown-item text-primary" href="sign_up.php">sign up</a></li>
                                 </ul>
                             </div>
+                        </li>
                 </div>
-                </li>
+
 
                 </ul>
             </div>
@@ -152,18 +153,19 @@ include 'config.php';
 
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
 
-                                <a href="index.php?carcodetype=<?php echo $value['car_code']; ?>" style="text-decoration: none; color:#fff; background-color:black;"   class=" px-5  rounded"
-                                    ><?php echo  $value['car_type']; ?>
-                        </a>
+                                <a href="index.php?carcodetype=<?php echo $value['car_code']; ?>"
+                                    style="text-decoration: none; color:#fff; background-color:black;"
+                                    class=" px-5  rounded"><?php echo  $value['car_type']; ?>
+                                </a>
                             </div>
                         </div>
 
-                      
-            <?php } } ?>
+
+                        <?php } } ?>
 
 
-            </div>
-            </div>
+                    </div>
+                </div>
     </form>
 
     <!-- <a href="login.php" style="text-decoration:none; color:#fff;"> <button type="submit" id="book" value="book"
