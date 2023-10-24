@@ -44,66 +44,6 @@ function deleteRecord($id)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="main.css" />
     <style>
-    /* .navbar-side {
-        width: 200px;
-        height: 100%;
-        position: fixed;
-        background-color: #343a40;
-        -webkit-transition: 0.2s all ease-in-out;
-        transition: 0.2s all ease-in-out;
-    }
-
-    .navbar-side h6 {
-        color: #fff;
-        margin: 9px 0 10px 20px;
-        font-size: 18px;
-        line-height: 1.6;
-        white-space: nowrap;
-    }
-
-    .navbar-side ul li {
-        list-style-type: none;
-    }
-
-    .navbar-side ul li a {
-        padding: 10px;
-        display: inline-block;
-        text-decoration: none;
-        color: black;
-        font-size: 1.1em;
-        width: 100%;
-        padding-left: 20px;
-        -webkit-transition: 0.2s all ease-in-out;
-        transition: 0.2s all ease-in-out;
-        white-space: nowrap;
-    }
-
-    .navbar-side ul li a:hover,
-    .navbar-side ul li a.link-active {
-        background-color: #fff;
-        border-left: 5px solid #ccc;
-    }
-
-    .navbar-side ul li a .icon {
-        padding-right: 10px;
-    }
-
-    table {
-        width: 300px;
-
-    }
-
-    th {
-        text-align: left;
-    }
-
-    table,
-    th,
-    td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    } */
-
     .sidebar {
         position: fixed;
         left: 0;
@@ -117,16 +57,39 @@ function deleteRecord($id)
         border-right: 1px solid #d3d3d3;
     }
 
+    .sidebar ul li {
+        list-style-type: none;
+    }
+
+    .sidebar ul li a {
+        padding: 10px;
+        display: inline-block;
+        text-decoration: none;
+        color: black;
+        font-size: 1.1em;
+        width: 100%;
+        padding-left: 20px;
+        -webkit-transition: 0.2s all ease-in-out;
+        transition: 0.2s all ease-in-out;
+        white-space: nowrap;
+    }
+
+    .sidebar ul li a:hover,
+    .sidebar ul li a.link-active {
+        background-color: #eee;
+        border-left: 5px solid #ccc;
+    }
+
     .left-sidebar {
         position: sticky;
         top: 0;
         height: calc(100vh - 70px)
     }
 
-    .sidebar-nav li .nav-link {
+    /* .sidebar-nav li .nav-link {
         color: #333;
         font-weight: 500;
-    }
+    } */
 
     main {
         padding-top: 120px;
@@ -136,7 +99,7 @@ function deleteRecord($id)
 
 <nav class="navbar navbar-dark fixed-top bg-dark text-light flex-md-nowrap p-0 shadow">
     <ul class="navbar-nav px-3">
-       
+
         <li class="nav-item text-nowrap">
             <a class="nav-link p-3" href="#"><span class="icon"><i class="fas fa-code"></i></span>Admin Panel</a>
         </li>
@@ -149,8 +112,7 @@ function deleteRecord($id)
         <li class="nav-item list-inline-item">
             <div class="btn-group ">
 
-                <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                        class="bi-person-circle">
+                <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown"><i class="bi-person-circle">
                         <?php echo $_SESSION['name'] ?></i>
                 </button>
                 <ul class="dropdown-menu">
@@ -170,7 +132,7 @@ function deleteRecord($id)
     </p>
 </nav>
 
- 
+
 
 
 <div class="container-fluid">

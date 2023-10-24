@@ -44,66 +44,6 @@ function deleteRecord($id)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="main.css" />
     <style>
-    /* .navbar-side {
-        width: 200px;
-        height: 100%;
-        position: fixed;
-        background-color: #343a40;
-        -webkit-transition: 0.2s all ease-in-out;
-        transition: 0.2s all ease-in-out;
-    }
-
-    .navbar-side h6 {
-        color: #fff;
-        margin: 9px 0 10px 20px;
-        font-size: 18px;
-        line-height: 1.6;
-        white-space: nowrap;
-    }
-
-    .navbar-side ul li {
-        list-style-type: none;
-    }
-
-    .navbar-side ul li a {
-        padding: 10px;
-        display: inline-block;
-        text-decoration: none;
-        color: black;
-        font-size: 1.1em;
-        width: 100%;
-        padding-left: 20px;
-        -webkit-transition: 0.2s all ease-in-out;
-        transition: 0.2s all ease-in-out;
-        white-space: nowrap;
-    }
-
-    .navbar-side ul li a:hover,
-    .navbar-side ul li a.link-active {
-        background-color: #fff;
-        border-left: 5px solid #ccc;
-    }
-
-    .navbar-side ul li a .icon {
-        padding-right: 10px;
-    }
-
-    table {
-        width: 300px;
-
-    }
-
-    th {
-        text-align: left;
-    }
-
-    table,
-    th,
-    td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    } */
-
     .sidebar {
         position: fixed;
         left: 0;
@@ -117,19 +57,45 @@ function deleteRecord($id)
         border-right: 1px solid #d3d3d3;
     }
 
+    .sidebar ul li {
+        list-style-type: none;
+    }
+
+    .sidebar ul li a {
+        padding: 10px;
+        display: inline-block;
+        text-decoration: none;
+        color: black;
+        font-size: 1.1em;
+        width: 100%;
+        padding-left: 20px;
+        -webkit-transition: 0.2s all ease-in-out;
+        transition: 0.2s all ease-in-out;
+        white-space: nowrap;
+    }
+
+    .sidebar ul li a:hover,
+    .sidebar ul li a.link-active {
+        background-color: #eee;
+        border-left: 5px solid #ccc;
+    }
+
     .left-sidebar {
         position: sticky;
         top: 0;
         height: calc(100vh - 70px)
     }
 
-    .sidebar-nav li .nav-link {
+    /* .sidebar-nav li .nav-link {
         color: #333;
         font-weight: 500;
-    }
+    } */
 
     main {
         padding-top: 120px;
+    }
+    tr:nth-child(even) {
+        background-color:#f4e2ae8b;
     }
     </style>
 </head>
@@ -221,12 +187,12 @@ function deleteRecord($id)
 </div>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
- 
+
     <section id="users">
         <h3>Users</h3>
         <hr>
-        <div class="col-md-5 mx-auto float-end">
-            
+        <div class="col-md-5 mx-auto float-end bg-primary">
+
             <div class="input-group">
                 <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input">
                 <span class="input-group-append">
@@ -248,7 +214,7 @@ function deleteRecord($id)
                 ?>
 
             <div class="table-responsive p-5">
-                <div class="table-striped table-bordered table-hover">
+                <div class="table-bordered nth-child(even)">
 
                     <form action="" method="get" id="subscriber">
                         <input type="hidden" name="del" id="del">
@@ -259,7 +225,7 @@ function deleteRecord($id)
 
                         <table style="width: 100% !important;">
                             <thead>
-                                <tr>
+                                <tr style="background-color: #f4e2ae8b;">
                                     <th>#</th>
                                     <th>NAME</th>
                                     <th>EMAIL</th>
@@ -281,7 +247,7 @@ function deleteRecord($id)
                                     <td><?php echo $value['address'] ?></td>
                                     <td><?php echo $value['contact'] ?></td>
                                     <td><?php echo $value['gender'] ?></td>
-                                    <td><button type="submit"
+                                    <td><button type="submit" class="bg-danger rounded"
                                             onclick="document.getElementById('del').value = '<?= $value['id']; ?>';">Delete</button>
                                     </td>
 
