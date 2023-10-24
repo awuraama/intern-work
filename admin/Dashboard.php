@@ -86,20 +86,13 @@ function deleteRecord($id)
         height: calc(100vh - 70px)
     }
 
-    /* .sidebar-nav li .nav-link {
-        color: #333;
-        font-weight: 500;
-    } */
-
     main {
         padding-top: 120px;
     }
     </style>
 </head>
-
 <nav class="navbar navbar-dark fixed-top bg-dark text-light flex-md-nowrap p-0 shadow">
     <ul class="navbar-nav px-3">
-
         <li class="nav-item text-nowrap">
             <a class="nav-link p-3" href="#"><span class="icon"><i class="fas fa-code"></i></span>Admin Panel</a>
         </li>
@@ -108,27 +101,23 @@ function deleteRecord($id)
     <div class="container">
         <a href="#" class="navbar-brand"><span class="my-4" style="font-size:12px;">
                 Welcome <?php echo $_SESSION['name'] ?> !</span></a>
-
         <li class="nav-item list-inline-item">
             <div class="btn-group ">
-
                 <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown"><i class="bi-person-circle">
                         <?php echo $_SESSION['name'] ?></i>
                 </button>
                 <ul class="dropdown-menu">
                     <li class="nav-item list-inline-item">
-                        <!-- <form action="processlogout.php" method="POST"> -->
                         <a class="dropdown-item text-primary" href="../processlogout.php">Logout</a>
-                        <!-- </form> -->
                     </li>
                     <li><a class="dropdown-item text-primary" href="changepassword.php"
                             style="text-decoration:none; color:#fff"> Change
-                            Password</a></li>
+                            Password</a>
+                    </li>
                 </ul>
             </div>
     </div>
     </li>
-    </div>
     </p>
 </nav>
 
@@ -186,7 +175,8 @@ function deleteRecord($id)
     </div>
 </div>
 
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"> 
+    
     <h5 class="p-2">Dashboard</h5>
     <hr>
     <div>
@@ -233,8 +223,6 @@ function deleteRecord($id)
             </div>
         </div>
     </div>
-
-
+ 
 </main>
-
 </body>

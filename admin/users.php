@@ -86,23 +86,18 @@ function deleteRecord($id)
         height: calc(100vh - 70px)
     }
 
-    /* .sidebar-nav li .nav-link {
-        color: #333;
-        font-weight: 500;
-    } */
-
     main {
         padding-top: 120px;
     }
+
     tr:nth-child(even) {
-        background-color:#f4e2ae8b;
+        background-color: #f4e2ae8b;
     }
     </style>
 </head>
 
 <nav class="navbar navbar-dark fixed-top bg-dark text-light flex-md-nowrap p-0 shadow">
     <ul class="navbar-nav px-3">
-
         <li class="nav-item text-nowrap">
             <a class="nav-link p-3" href="#"><span class="icon"><i class="fas fa-code"></i></span>Admin Panel</a>
         </li>
@@ -111,18 +106,14 @@ function deleteRecord($id)
     <div class="container">
         <a href="#" class="navbar-brand"><span class="my-4" style="font-size:12px;">
                 Welcome <?php echo $_SESSION['name'] ?> !</span></a>
-
         <li class="nav-item list-inline-item">
             <div class="btn-group ">
-
                 <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="bi-person-circle"><?php echo $_SESSION['name'] ?></i>
                 </button>
                 <ul class="dropdown-menu">
                     <li class="nav-item list-inline-item">
-                        <!-- <form action="processlogout.php" method="POST"> -->
                         <a class="dropdown-item text-primary" href="../processlogout.php">Logout</a>
-                        <!-- </form> -->
                     </li>
                     <li><a class="dropdown-item text-primary" href="changepassword.php"
                             style="text-decoration:none; color:#fff"> Change
@@ -144,7 +135,6 @@ function deleteRecord($id)
                             <span class="icon"><i class="fas fa-chart-bar"></i></span>
                             <span class="link-text">Dashboard</span>
                         </a></li>
-
                     <li class="nav-item">
                         <a class="nav-link active" href="users.php">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -204,8 +194,6 @@ function deleteRecord($id)
             </div>
         </div>
         <div class="d-flex justify-content-center col-lg-12">
-
-
             <?php
                     $sql = "SELECT * FROM `customer`";
                     $stmt = $connection->prepare($sql);
@@ -220,9 +208,6 @@ function deleteRecord($id)
                         <input type="hidden" name="del" id="del">
                         <input type="hidden" name="update_key" id="update_key">
 
-
-
-
                         <table style="width: 100% !important;">
                             <thead>
                                 <tr style="background-color: #f4e2ae8b;">
@@ -233,8 +218,6 @@ function deleteRecord($id)
                                     <th>CONTACT</th>
                                     <th>GENDER</th>
                                     <th>DELETE</th>
-
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -247,13 +230,11 @@ function deleteRecord($id)
                                     <td><?php echo $value['address'] ?></td>
                                     <td><?php echo $value['contact'] ?></td>
                                     <td><?php echo $value['gender'] ?></td>
-                                    <td><button type="submit" class="bg-danger rounded"
+                                    <td><button type="submit" class="text-danger rounded"
                                             onclick="document.getElementById('del').value = '<?= $value['id']; ?>';">Delete</button>
                                     </td>
-
                                 </tr>
                                 <?php } ?>
-
                             </tbody>
                         </table>
                     </form>
@@ -263,7 +244,5 @@ function deleteRecord($id)
         </div>
     </section>
 
-
 </main>
-
 </body>
