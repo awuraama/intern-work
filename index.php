@@ -203,10 +203,7 @@ include 'config.php';
 
 
     <?php 
-                $sql = "SELECT * FROM `cars`";
-                $stmt = $connection->prepare($sql);
-                $status  = $stmt->execute();
-                $list = $stmt->fetchAll();
+               
              
     ?>
     <div class="container">
@@ -214,9 +211,13 @@ include 'config.php';
         <div class="container" style="margin-top:100px;">
             <div class="row  justify-content-around align-item-center">
                 <?php
-                if(empty($_POST['carcodetype'])){
-                  //  echo 'hi you';
-                                   // print_r($_POST['carcodetype']);
+                if(empty($_GET['carcodetype']) || $_GET['carcodetype']=='all'){
+                   
+                    $sql = "SELECT * FROM `cars`";
+                    $stmt = $connection->prepare($sql);
+                    $status  = $stmt->execute();
+                    $list = $stmt->fetchAll();
+
 
                 if(is_array($list)){
                 foreach ($list as $key => $value) {
@@ -281,7 +282,82 @@ include 'config.php';
                         </p>
                     </div>
                 </div>
-                <?php } }} ?>
+
+
+
+                <?php } }}else{
+                    $sql = "SELECT * FROM `cars` WHERE car_code=:car_code";
+                    $stmt = $connection->prepare($sql);
+                    $stmt->bindParam(':car_code', $_GET['carcodetype']);
+                    $stmt->execute();
+                    $list = $stmt->fetchAll();
+                //  echo 'hi you';
+                // print_r($list);
+
+                if(is_array($list)){
+                    foreach ($list as $key => $value) {
+                    ?>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
+                    <div>
+
+                        <div style="display:flex; justify-content: center; align-items: center;">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
+                                Rent Now!
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Properties</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>
+                                            <ul>
+                                                <li><strong>make: </strong><?php echo $value['make']?></li>
+                                                <li><b>model: </b><?php echo $value['model']?></li>
+                                                <li><b>model year: </b><?php echo $value['model_year']?></li>
+                                                </li>
+
+                                            </ul>
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger"
+                                                data-bs-dismiss="modal">Close</button>
+
+                                            <button type="button" class="btn btn-primary"><a href="login.php"
+                                                    style="text-decoration:none; color:#fff"> Book Now!
+                                                </a></button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <img src="casset/<?php echo $value['car_images'] ?>" alt="car" style="width:100%;">
+                        </center>
+                        <p>Car details:
+                        <ul>
+                            <li><b>model: <?php echo $value['model']?></b></li>
+                            <li><b>model year: <?php echo $value['model_year']?></b>
+                            </li>
+                            <li><b>price_per_day: $ <?php echo $value['price_per_day']?></b></li>
+
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <?php }} }?>
             </div>
         </div>
         </section>
