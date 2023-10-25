@@ -91,7 +91,7 @@ function deleteRecord($id)
     }
 
     tr:nth-child(even) {
-        background-color: #f4e2ae8b;
+        background-color: #76d98dab;
     }
     </style>
 </head>
@@ -181,7 +181,7 @@ function deleteRecord($id)
     <section id="users">
         <h3>Users</h3>
         <hr>
-        <div class="col-md-5 mx-auto float-end bg-primary">
+        <div class="col-md-5 mx-auto float-end">
 
             <div class="input-group">
                 <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input">
@@ -210,14 +210,14 @@ function deleteRecord($id)
 
                         <table style="width: 100% !important;">
                             <thead>
-                                <tr style="background-color: #f4e2ae8b;">
+                                <tr style="background-color:#76d98dab;">
                                     <th>#</th>
-                                    <th>NAME</th>
-                                    <th>EMAIL</th>
-                                    <th>ADDRESS</th>
-                                    <th>CONTACT</th>
-                                    <th>GENDER</th>
-                                    <th>DELETE</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Contact</th>
+                                    <th>Gender</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -230,7 +230,7 @@ function deleteRecord($id)
                                     <td><?php echo $value['address'] ?></td>
                                     <td><?php echo $value['contact'] ?></td>
                                     <td><?php echo $value['gender'] ?></td>
-                                    <td><button type="submit" class="text-danger rounded"
+                                    <td><button type="submit" class="btn btn-danger rounded"
                                             onclick="document.getElementById('del').value = '<?= $value['id']; ?>';">Delete</button>
                                     </td>
                                 </tr>

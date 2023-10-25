@@ -79,6 +79,8 @@ $sql = "INSERT INTO cars (registration_no, model,  make,  model_year, mileage, p
         $status  = $stmt->execute();
 
         $target_dir = "../casset/";
+        // var_dump( "../casset/");
+        // exit;
         $target_file = $target_dir . basename($_FILES["myfileupload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -126,7 +128,7 @@ $sql = "INSERT INTO cars (registration_no, model,  make,  model_year, mileage, p
 
         if ($status) {
             echo 'inserted';
-             header('Location:Dashboard.php');
+             header('Location:cars.php');
         } else {
             echo 'failed';
         }

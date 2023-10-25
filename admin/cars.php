@@ -99,7 +99,7 @@ function deleteRecord($id)
 
 <nav class="navbar navbar-dark fixed-top bg-dark text-light flex-md-nowrap p-0 shadow">
     <ul class="navbar-nav px-3">
-       
+
         <li class="nav-item text-nowrap">
             <a class="nav-link p-3" href="#"><span class="icon"><i class="fas fa-code"></i></span>Admin Panel</a>
         </li>
@@ -135,8 +135,9 @@ function deleteRecord($id)
     <div class="row">
         <div class="col-md-2 bg-light d-none d-md-block sidebar">
             <div class="left-sidebar">
-            <ul class="nav flex-column sidebar-nav">
-                    <li><a href="Dashboard.php" class="link-active" title="Dashboard" style="text-decoration: none; color:black;">
+                <ul class="nav flex-column sidebar-nav">
+                    <li><a href="Dashboard.php" class="link-active" title="Dashboard"
+                            style="text-decoration: none; color:black;">
                             <span class="icon"><i class="fas fa-chart-bar"></i></span>
                             <span class="link-text">Dashboard</span>
                         </a></li>
@@ -183,23 +184,13 @@ function deleteRecord($id)
 </div>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
- 
-<form action="processcars.php" method="GET">
-<section id="users">
-        <h3>Cars</h3>
-        <hr>
-        <!-- <div class="col-md-5 mx-auto float-end bg-primary">
 
-            <div class="input-group">
-                <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input">
-                <span class="input-group-append">
-                    <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
-                        type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </span>
-            </div>
-        </div> -->
+    <form action="processcars.php" method="GET">
+    <section id="cars">
+            <div class="container">
+                <div class="container">
+                <h3>Cars</h3>
+        <hr>
 
                     <div class="d-flex justify-content-around p-4">
 
@@ -221,7 +212,7 @@ function deleteRecord($id)
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
 
                                 <a href="cars.php?carcodetype=<?php echo $value['car_code']; ?>"
-                                    style="text-decoration: none; color:#fff; background-color:black;"
+                                    style="text-decoration: none; color:#fff; background-color:#007BFF;"
                                     class=" px-5  rounded"><?php echo  $value['car_type']; ?>
                                 </a>
                             </div>
@@ -234,41 +225,7 @@ function deleteRecord($id)
                     </div>
                 </div>
     </form>
-
-    <!-- <a href="login.php" style="text-decoration:none; color:#fff;"> <button type="submit" id="book" value="book"
-                    name="book" class="p-2 px-5 mt-3 rounded float-end text-light m-5" style="background-color:black;"
-                    onclick=""> BOOK A CAR! </button></a> -->
-
-    <!-- <div class="row  justify-content-around align-item-center">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5">
-                    <p style="padding:50px;">
-                        We all have fantasies about our ideal automobiles, but only a select few people put in the
-                        effort to turn
-                        those thoughts into reality. You undoubtedly deserve a lot of praise if you are the one who
-                        finally got
-                        your dream car. These are the best quotes for car lovers and beautiful vehicles are ideal for
-                        anyone
-                        preparing to embark on their first journey in their ideal vehicle. <span
-                            class="blockquote-footer">autobest</span></p>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5 text-item-center">
-                    <center><img src="casset/c2.PNG" alt="car" style="width:90%;"></center>
-                </div>
-            </div>
-        </div>
-        <div class="row  justify-content-around align-item-center">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5 text-item-center">
-                <center><img src="casset/c1.PNG" alt="car" style="width:80%;"></center>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-5">
-                <P style="padding:50px;">If you had asked folks what kind of wheels they wanted. They would have
-                    responded, "A faster car," and
-                    the correct response is BMW /M Performance.</P>
-            </div>
-        </div> -->
-
-
-
+ 
     <?php 
                
              
@@ -290,16 +247,16 @@ function deleteRecord($id)
                 foreach ($list as $key => $value) {
                // print_r($value);
                 ?>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rounded" style="margin-bottom:30px;">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 rounded" style="margin-bottom:30px;">
                     <div>
 
                         <div style="display:flex; justify-content: center; align-items: center;">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
+                            <!-- <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
                                 data-bs-toggle="modal"
                                 data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
                                 Rent Now!
-                            </button>
+                            </button> -->
 
                             <!-- Modal -->
                             <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>" tabindex="-1"
@@ -338,7 +295,7 @@ function deleteRecord($id)
 
                         <img src="../casset/<?php echo $value['car_images'] ?>" alt="car" style="width:100%;">
                         </center>
-                        <p>Car details:
+                        <!-- <p>Car details:
                         <ul>
                             <li><b>model: <?php echo $value['model']?></b></li>
                             <li><b>model year: <?php echo $value['model_year']?></b>
@@ -346,7 +303,7 @@ function deleteRecord($id)
                             <li><b>price_per_day: $ <?php echo $value['price_per_day']?></b></li>
 
                         </ul>
-                        </p>
+                        </p> -->
                     </div>
                 </div>
 
@@ -370,11 +327,11 @@ function deleteRecord($id)
 
                         <div style="display:flex; justify-content: center; align-items: center;">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
+                            <!-- <button type="button" class="btn btn-light p-2 px-5 rounded float-end text-primary"
                                 data-bs-toggle="modal"
                                 data-bs-target="#Modal_<?php echo  $value['registration_no']; ?>">
                                 Rent Now!
-                            </button>
+                            </button> -->
 
                             <!-- Modal -->
                             <div class="modal fade" id="Modal_<?php echo  $value['registration_no']; ?>" tabindex="-1"
@@ -413,7 +370,7 @@ function deleteRecord($id)
 
                         <img src="../casset/<?php echo $value['car_images'] ?>" alt="car" style="width:100%;">
                         </center>
-                        <p>Car details:
+                        <!-- <p>Car details:
                         <ul>
                             <li><b>model: <?php echo $value['model']?></b></li>
                             <li><b>model year: <?php echo $value['model_year']?></b>
@@ -421,15 +378,13 @@ function deleteRecord($id)
                             <li><b>price_per_day: $ <?php echo $value['price_per_day']?></b></li>
 
                         </ul>
-                        </p>
+                        </p> -->
                     </div>
                 </div>
                 <?php }} }?>
             </div>
         </div>
-        </section>
-
-     
+        
 </main>
 
 </body>
