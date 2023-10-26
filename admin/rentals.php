@@ -216,7 +216,7 @@ function deleteRecord($id)
 ?>
         <div class="container-fluid">
             <div class="table-responsive p-5">
-                <div class="table-bordered nth-child(even)">
+                <div class="table-bordered table-hover nth-child(even)">
                     <form action="" method="get" id="subscriber">
                         <input type="hidden" name="del" id="del">
                         <input type="hidden" name="update_key" id="update_key">
